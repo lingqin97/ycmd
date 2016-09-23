@@ -24,13 +24,13 @@
 
 #include <vector>
 #include <clang-c/Index.h>
-#include <boost/shared_ptr.hpp>
-#include <boost/type_traits/remove_pointer.hpp>
+#include <memory>
+#include <type_traits>
 
 namespace YouCompleteMe {
 
-typedef boost::shared_ptr <
-boost::remove_pointer< CXDiagnostic >::type > DiagnosticWrap;
+typedef std::shared_ptr <
+std::remove_pointer_t< CXDiagnostic > > DiagnosticWrap;
 
 std::vector< CompletionData > ToCompletionDataVector(
   CXCodeCompleteResults *results );
@@ -46,4 +46,3 @@ Diagnostic BuildDiagnostic( DiagnosticWrap diagnostic_wrap,
 } // namespace YouCompleteMe
 
 #endif /* end of include guard: CLANGHELPERS_H_T3ME71LG */
-

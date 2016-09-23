@@ -21,8 +21,8 @@
 #include <vector>
 #include <string>
 #include <boost/utility.hpp>
-#include <boost/shared_ptr.hpp>
-#include <boost/thread/mutex.hpp>
+#include <meomory>
+#include <mutex>
 #include <boost/python.hpp>
 #include <clang-c/CXCompilationDatabase.h>
 
@@ -58,7 +58,7 @@ private:
 
   bool is_loaded_;
   CXCompilationDatabase compilation_database_;
-  boost::mutex compilation_database_mutex_;
+  std::mutex compilation_database_mutex_;
 };
 
 } // namespace YouCompleteMe

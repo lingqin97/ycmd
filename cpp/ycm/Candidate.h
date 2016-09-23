@@ -21,7 +21,7 @@
 #include "DLLDefines.h"
 #include "LetterNode.h"
 
-#include <boost/scoped_ptr.hpp>
+#include <memory>
 #include <boost/utility.hpp>
 
 #include <string>
@@ -65,10 +65,9 @@ private:
   std::string word_boundary_chars_;
   bool text_is_lowercase_;
   Bitset letters_present_;
-  boost::scoped_ptr< LetterNode > root_node_;
+  std::unique_ptr< LetterNode > root_node_;
 };
 
 } // namespace YouCompleteMe
 
 #endif /* end of include guard: CANDIDATE_H_R5LZH6AC */
-

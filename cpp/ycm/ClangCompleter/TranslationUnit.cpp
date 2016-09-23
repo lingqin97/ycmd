@@ -22,14 +22,14 @@
 #include "ClangUtils.h"
 #include "ClangHelpers.h"
 
-#include <boost/shared_ptr.hpp>
-#include <boost/type_traits/remove_pointer.hpp>
+#include <memory>
+#include <type_traits>
 
-using boost::unique_lock;
-using boost::mutex;
-using boost::try_to_lock_t;
-using boost::shared_ptr;
-using boost::remove_pointer;
+using std::unique_lock;
+using std::mutex;
+using std::try_to_lock_t;
+using std::shared_ptr;
+using std::remove_pointer_t;
 
 namespace YouCompleteMe {
 
@@ -65,7 +65,7 @@ void EnsureCompilerNamePresent( std::vector< const char * > &flags ) {
 }  // unnamed namespace
 
 typedef shared_ptr <
-remove_pointer< CXCodeCompleteResults >::type > CodeCompleteResultsWrap;
+remove_pointer_t< CXCodeCompleteResults > > CodeCompleteResultsWrap;
 
 TranslationUnit::TranslationUnit()
   : filename_( "" ),

@@ -28,11 +28,12 @@
 #include "ReleaseGil.h"
 
 #include <clang-c/Index.h>
-#include <boost/shared_ptr.hpp>
+#include <meomory>
+#include <unordered_map>
 
 
-using boost::shared_ptr;
-using boost::unordered_map;
+using std::shared_ptr;
+using std::unordered_map;
 
 namespace YouCompleteMe {
 
